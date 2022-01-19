@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <Header
-    @inputTextToApp="fillInputText($event)"
+    @inputTextToApp="getMovies($event)"
     />
     <Main
-    :inputText="this.inputText" 
+    :movies="this.movies" 
     />
   </div>
 </template>
@@ -12,6 +12,7 @@
 <script>
 import Header from "./components/Header.vue"
 import Main from "./components/Main.vue"
+import axios from "axios";
 
 export default {
   name: "App",
@@ -21,12 +22,19 @@ export default {
   },
   data() {
     return {
-      inputText:"",
+      movies: null,
+      query: "https://api.themoviedb.org/3/search/movie?api_key=72c83988e48ed668d3d11346217d3feb&query=",
     };
   },
   methods: {
-    fillInputText(value) {
-      this.inputText = value;
+    getMovies(text) {
+      axios.get(this.query + text)
+      .then((result) => {
+        this.movies = result.data.results;
+      }) 
+      .catch((error) => {
+        console.log(error);
+      })
     }
   }
 };

@@ -1,9 +1,9 @@
 <template>
   <main>
       <ul>
-          <li v-if="this.movie.length != 0">
+          <li>
               <Card
-              v-for="(movie, index) in movies"
+              v-for="(movie, index) in this.movies"
               :key="index"
               :title="movies.title"
               :original_title="movies.original_title"
@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import Card from "./Card.vue";
 
 export default {
@@ -25,31 +24,10 @@ export default {
         Card,
     },
     props: {
-        inputText: {
-            type: String,
+        movies: {
+            type: Array,
         }
     },
-    data() {
-        return {
-            movies: [],
-            query: "https://api.themoviedb.org/3/search/movie?api_key=72c83988e48ed668d3d11346217d3feb&query=",
-        }
-    },
-    computed: {
-    },
-    methods: {
-        getMovies(text) {
-            text = text.replace(/ /i, "+");
-            axios.get(this.query + text)
-            .then((result) => {
-                console.log(result.data.results);
-                this.movies = result.data.results;
-            }) 
-            .catch((error) => {
-                console.log(error);
-            })
-        }
-    }
 }
 </script>
 
