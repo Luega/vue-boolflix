@@ -1,7 +1,7 @@
 <template>
   <main>
       <ul>
-          <li v-if="this.movies.length != 0">
+          <li v-if="this.movie.length != 0">
               <Card
               v-for="(movie, index) in movies"
               :key="index"
@@ -36,7 +36,6 @@ export default {
         }
     },
     computed: {
-
     },
     methods: {
         getMovies(text) {
