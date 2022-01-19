@@ -1,16 +1,29 @@
 <template>
   <main>
-      <button @click="getMovies(inputText)">
-
-      </button>
+      <ul>
+          <li v-if="this.movies.length != 0">
+              <Card
+              v-for="(movie, index) in movies"
+              :key="index"
+              :title="movies.title"
+              :original_title="movies.original_title"
+              :original_language="movies.original_language"
+              :vote_average="movies.vote_average"
+              />
+          </li>
+      </ul>
   </main>
 </template>
 
 <script>
 import axios from "axios";
+import Card from "./Card.vue";
 
 export default {
     name:"Main",
+    components: {
+        Card,
+    },
     props: {
         inputText: {
             type: String,
@@ -23,14 +36,15 @@ export default {
         }
     },
     computed: {
+
     },
     methods: {
         getMovies(text) {
             text = text.replace(/ /i, "+");
-            console.log(text);
             axios.get(this.query + text)
             .then((result) => {
                 console.log(result.data.results);
+                this.movies = result.data.results;
             }) 
             .catch((error) => {
                 console.log(error);
