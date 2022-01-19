@@ -9,9 +9,13 @@
 
 export default {
     name:"Main",
+    props: {
+        inputText: {
+            type: String,
+        }
+    },
     data() {
         return {
-            
         }
     }
 }

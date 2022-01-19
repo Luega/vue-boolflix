@@ -3,7 +3,9 @@
     <Header
     @inputTextToApp="fillInputText($event)"
     />
-    <Main />
+    <Main
+    :inputText="this.inputText" 
+    />
   </div>
 </template>
 
