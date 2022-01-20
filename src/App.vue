@@ -35,7 +35,7 @@ export default {
         language:"en-US",
         query: text,                                                       
       };
-      axios.get("${this.query}${endpoint}", { params: parameters})
+      axios.get(`${this.query}${endpoint}`, { params: parameters})
       .then((result) => {
         console.log(result);
         this.movies = result.data.results;

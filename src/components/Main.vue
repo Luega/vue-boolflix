@@ -1,23 +1,26 @@
 <template>
   <main>
-      <ul>
-          <li v-for="(movie, index) in movies" :key="index + movie.id">
-              <h1>{{ movie.title }}</h1>
-              <div>{{ movie.original_title }}</div>
-              <div>{{ movie.original_language }}</div>
-              <div>{{ movie.vote_average }}</div>
-          </li>
+      <ul>  
+        <Card 
+        v-for="(movie, index) in movies"
+        :key="index + movie.id"
+        :title="movie.title"
+        :original_title="movie.original_title"
+        :original_language="movie.original_language"
+        :vote_average="movie.vote_average"
+        :id="movie.id"
+        />
       </ul>
   </main>
 </template>
 
 <script>
-// import Card from "./Card.vue";
+import Card from "./Card.vue";
 
 export default {
     name:"Main",
     components: {
-        // Card,
+        Card,
     },
     data() {
         return {
@@ -37,7 +40,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
-    color: red;
-}
+
 </style>
