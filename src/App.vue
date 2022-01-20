@@ -4,7 +4,8 @@
     @inputTextToApp="searchInfo($event)"
     />
     <Main
-    :info="this.info" 
+    :movieList="this.movieList" 
+    :tvList="this.tvList" 
     />
   </div>
 </template>
@@ -22,7 +23,6 @@ export default {
   },
   data() {
     return {
-      info: null,
       query: "https://api.themoviedb.org/3/search/",
       api_key:"72c83988e48ed668d3d11346217d3feb",
       movieList: null,

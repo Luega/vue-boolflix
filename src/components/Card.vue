@@ -1,7 +1,10 @@
 <template>
   <li>
-      <div class="red">Titolo: {{ title }}</div>
-      <div>Titolo originale: {{ original_title }}</div>
+      <div v-if="(this.title)">
+        <div class="red">Titolo: {{ title }}</div>
+        <div>Titolo originale: {{ original_title }}</div>
+      </div>
+      <div v-else class="red">Titolo: {{ original_name }}</div>
       <div>Lingua: <i :class="'flag flag-' + getFlag(original_language)"></i></div>
       <div>Voto medio: {{ vote_average }}</div>
   </li>
@@ -15,6 +18,9 @@ export default {
             type: String,
         },
         original_title: {
+            type: String,
+        },
+        original_name: {
             type: String,
         },
         original_language: {

@@ -6,6 +6,7 @@
         :key="index + card.id"
         :title="card.title"
         :original_title="card.original_title"
+        :original_name="card.original_name"
         :original_language="card.original_language"
         :vote_average="card.vote_average"
         :id="card.id"
@@ -24,17 +25,26 @@ export default {
     },
     data() {
         return {
+            info: [],
         }
     },
     props: {
-        info: {
+        movieList: {
             type: Array,
-        }
+        },
+        tvList: {
+            type: Array,
+        },
     },
     methods: {
-     
+        
     },
-    
+    watch: {
+        tvList: function (newArray) {
+            this.info = newArray.concat(this.movieList);
+            console.log(this.info);
+        }
+    }
 }
 </script>
 
