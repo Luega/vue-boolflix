@@ -1,6 +1,6 @@
 <template>
   <main>
-      <ul>  
+      <ul v-if="this.info.length != 0">  
         <Card 
         v-for="(card, index) in info"
         :key="index + card.id"
@@ -12,6 +12,7 @@
         :id="card.id"
         />
       </ul>
+      <h1 v-else>NON CI SONO RISULTATI DISPONIBILI</h1>
   </main>
 </template>
 

@@ -22,7 +22,7 @@ export default {
     methods: {
         sendToApp(value) {
             this.$emit('inputTextToApp', value);
-        }
+        },
   }
 }
 </script>

@@ -5,6 +5,7 @@
       v-model="inputText"
       type="text"
       name="search"
+      @keyup.enter="$emit('doSearch', inputText)"
     >
     <button
       type="submit"
@@ -22,6 +23,10 @@ export default {
         return {
             inputText: "",
         }
+    },
+    watch: {
+      
+      
     }
 }
 </script>
