@@ -25,7 +25,7 @@
           </span> 
           <i v-else :class="'flag flag-' + getFlag(original_language)"></i>
       </div>
-      <div>Voto medio: {{ vote_average }}</div>
+      <div>Voto medio: {{ newVote }}</div>
   </li>
 </template>
 
@@ -76,6 +76,11 @@ export default {
             return 'us';
             }
             return lang;
+        },
+    },
+    computed: {
+        newVote: function () {
+            return Math.ceil(this.vote_average / 2)
         },
     }
 }
