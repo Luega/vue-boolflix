@@ -10,6 +10,7 @@
         :original_name="card.original_name"
         :original_language="card.original_language"
         :vote_average="card.vote_average"
+        :poster_path="card.poster_path"
         :id="card.id"
         />
       </ul>

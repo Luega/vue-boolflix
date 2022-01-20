@@ -1,5 +1,9 @@
 <template>
   <li>
+      <div>
+          <span v-if="!this.poster_path">unavailable</span>
+          <img v-else :src="`${this.urlImg}${this.poster_sizes[2]}${this.poster_path}`" alt="ciao">
+      </div>
       <div v-if="(this.title)">
         <div class="red">Titolo: {{ title }}</div>
         <div>Titolo originale: {{ original_title }}</div>
@@ -14,6 +18,7 @@
             this.original_language == 'ko' ||
             this.original_language == 'da' ||
             this.original_language == 'zh' ||
+            this.original_language == 'ur' ||
             this.original_language == 'hi'
             "
             >unavailable
@@ -27,6 +32,20 @@
 <script>
 export default {
     name: "card",
+    data() {
+        return {
+            urlImg: "https://image.tmdb.org/t/p/",
+            poster_sizes: [
+            "w92",
+            "w154",
+            "w185",
+            "w342",
+            "w500",
+            "w780",
+            "original"
+            ],
+        }
+    },
     props: {
         title: {
             type: String,
@@ -43,6 +62,10 @@ export default {
         vote_average: {
             type: Number,
         },
+        poster_path: {
+            type: String,
+        },
+
         id: {
             type: Number,
         }
