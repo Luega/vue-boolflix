@@ -23,22 +23,28 @@ export default {
   data() {
     return {
       movies: null,
-      query: "https://api.themoviedb.org/3/search/movie?api_key=72c83988e48ed668d3d11346217d3feb&query=",
+      query: "https://api.themoviedb.org/3/search/",
+      api_key:"72c83988e48ed668d3d11346217d3feb",
     };
   },
   methods: {
     getMovies(text) {
-      text = text.replace(/ /i, "+");
-      console.log(text);
-      axios.get(this.query + text)
+      const endpoint = "movie";
+      const parameters = {
+        api_key: this.api_key,
+        language:"en-US",
+        query: text,                                                       
+      };
+      axios.get("${this.query}${endpoint}", { params: parameters})
       .then((result) => {
+        console.log(result);
         this.movies = result.data.results;
       }) 
       .catch((error) => {
         console.log(error);
       })
     }
-  }
+  },
 };
 </script>
 

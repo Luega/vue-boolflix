@@ -3,12 +3,11 @@
       <ul>
           <li v-for="(movie, index) in movies" :key="index + movie.id">
               <h1>{{ movie.title }}</h1>
-              <h2>{{ movie.original_title }}</h2>
-              <h3>{{ movie.original_language }}</h3>
-              <h4>{{ movie.vote_average }}</h4>
+              <div>{{ movie.original_title }}</div>
+              <div>{{ movie.original_language }}</div>
+              <div>{{ movie.vote_average }}</div>
           </li>
       </ul>
-      <!-- <button @click="consoleLog(movies)">clicca</button> -->
   </main>
 </template>
 
@@ -31,43 +30,14 @@ export default {
         }
     },
     methods: {
-        // consoleLog(string) {
-        //  console.log(string);
-        //  if(this.movie) {
-        //         this.moviesNew = this.movies.map(movie => ({ title: movie.title, original_title: movie.original_title, original_language: movie.original_language, vote_average:movie.vote_average }));
-        //         return this.moviesNew
-        //     } else {
-        //         this.moviesNew = null;
-        //         return this.moviesNew
-        //     }
-        // },
+     
     },
-    // computed: {
-    //     createArray() {
-    //         if(this.movie == null) {
-    //             this.moviesNew = this.movies.map(movie => ({ title: movie.title, original_title: movie.original_title, original_language: movie.original_language, vote_average:movie.vote_average }));
-    //             return this.moviesNew
-    //         } else {
-    //             this.moviesNew = null;
-    //             return this.moviesNew
-    //         }
-    //     }
-    // },
-
-    // mounted() {
-    //     this.$nextTick(() => {
-    //         if(this.movie == null) {
-    //                 this.moviesNew = this.movies.map(movie => ({ title: movie.title, original_title: movie.original_title, original_language: movie.original_language, vote_average:movie.vote_average }));
-    //                 return this.moviesNew
-    //             } else {
-    //                 this.moviesNew = null;
-    //                 return this.moviesNew
-    //             }
-    //     })
-    // }
+    
 }
 </script>
 
 <style lang="scss" scoped>
-
+h1 {
+    color: red;
+}
 </style>
