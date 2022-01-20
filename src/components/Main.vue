@@ -1,6 +1,7 @@
 <template>
   <main>
-      <ul v-if="this.info.length != 0">  
+      <h1 v-if="!this.info">Scrivi nel campo di ricerca.</h1>
+      <ul v-else-if="this.info.length != 0">  
         <Card 
         v-for="(card, index) in info"
         :key="index + card.id"
@@ -26,7 +27,7 @@ export default {
     },
     data() {
         return {
-            info: [],
+            info: null,
         }
     },
     props: {

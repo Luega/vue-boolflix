@@ -24,10 +24,6 @@ export default {
             inputText: "",
         }
     },
-    watch: {
-      
-      
-    }
 }
 </script>
 
