@@ -1,9 +1,9 @@
 <template>
   <li>
-      <h1>{{ title }}</h1>
-      <h2>{{ original_title }}</h2>
-      <h3>{{ original_language }}</h3>
-      <h4>{{ vote_average }}</h4>
+      <h1>Titolo: {{ title }}</h1>
+      <h2>Titolo originale: {{ original_title }}</h2>
+      <h3>Lingua: <i :class="'flag flag-' + getFlag(original_language)"></i></h3>
+      <h4>Voto medio: {{ vote_average }}</h4>
   </li>
 </template>
 
@@ -26,11 +26,21 @@ export default {
         id: {
             type: Number,
         }
+    },
+    methods: {
+        getFlag(lang) {
+            if (lang === 'en') {
+            return 'us';
+            }
+            return lang;
+        },
     }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '~mdb-ui-kit/css/mdb.min.css';
+
 h1 {
     color: red;
 }
