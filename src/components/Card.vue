@@ -1,8 +1,7 @@
 <template>
   <li>
       <div>
-          <span v-if="!this.poster_path">unavailable</span>
-          <img v-else :src="`${this.urlImg}${this.poster_sizes[2]}${this.poster_path}`" alt="ciao">
+          <img :src="this.poster_path ? `${this.urlImg}${this.poster_sizes[2]}${this.poster_path}` : this.unavailableImg" alt="ciao">
       </div>
       <div v-if="(this.title)">
         <div class="red">Titolo: {{ title }}</div>
@@ -44,6 +43,7 @@ export default {
             "w780",
             "original"
             ],
+            unavailableImg: "https://www.associazionejam.it/wp-content/uploads/2017/04/non-disponibile-300x300.png",
         }
     },
     props: {
@@ -87,12 +87,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~mdb-ui-kit/css/mdb.min.css';
+
+@import "~mdb-ui-kit/css/mdb.min.css";
 
 li {
     margin-top: 2em;
 }
 .red {
     color: red;
+}
+img {
+    width: 185px;
+    height: auto;
 }
 </style>
