@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <Header
-    @inputTextToApp="getMovies($event)"
+    @inputTextToApp="searchInfo($event)"
     />
     <Main
-    :movies="this.movies" 
+    :info="this.info" 
     />
   </div>
 </template>
@@ -22,28 +22,50 @@ export default {
   },
   data() {
     return {
-      movies: null,
+      info: null,
       query: "https://api.themoviedb.org/3/search/",
       api_key:"72c83988e48ed668d3d11346217d3feb",
+      movieList: null,
+      tvList: null,
     };
   },
   methods: {
+    searchInfo(text){
+      this.getMovies(text);
+      this.getTv(text);
+    },
     getMovies(text) {
       const endpoint = "movie";
       const parameters = {
         api_key: this.api_key,
         language:"en-US",
-        query: text,                                                       
+        query: text,                                                     
       };
       axios.get(`${this.query}${endpoint}`, { params: parameters})
       .then((result) => {
-        console.log(result);
-        this.movies = result.data.results;
+        this.movieList = result.data.results;
+        console.log(this.movieList);
       }) 
       .catch((error) => {
         console.log(error);
       })
-    }
+    },
+    getTv(text) {
+      const endpoint = "tv";
+      const parameters = {
+        api_key: this.api_key,
+        language:"en-US",
+        query: text,                                                     
+      };
+      axios.get(`${this.query}${endpoint}`, { params: parameters})
+      .then((result) => {
+        this.tvList = result.data.results;
+        console.log(this.tvList);
+      }) 
+      .catch((error) => {
+        console.log(error);
+      })
+    },
   },
 };
 </script>

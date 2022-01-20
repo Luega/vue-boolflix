@@ -1,9 +1,9 @@
 <template>
   <li>
-      <h1>Titolo: {{ title }}</h1>
-      <h2>Titolo originale: {{ original_title }}</h2>
-      <h3>Lingua: <i :class="'flag flag-' + getFlag(original_language)"></i></h3>
-      <h4>Voto medio: {{ vote_average }}</h4>
+      <div class="red">Titolo: {{ title }}</div>
+      <div>Titolo originale: {{ original_title }}</div>
+      <div>Lingua: <i :class="'flag flag-' + getFlag(original_language)"></i></div>
+      <div>Voto medio: {{ vote_average }}</div>
   </li>
 </template>
 
@@ -41,7 +41,8 @@ export default {
 <style lang="scss" scoped>
 @import '~mdb-ui-kit/css/mdb.min.css';
 
-h1 {
+.red {
     color: red;
+    margin-top: 2em;
 }
 </style>

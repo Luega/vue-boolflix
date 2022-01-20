@@ -2,13 +2,13 @@
   <main>
       <ul>  
         <Card 
-        v-for="(movie, index) in movies"
-        :key="index + movie.id"
-        :title="movie.title"
-        :original_title="movie.original_title"
-        :original_language="movie.original_language"
-        :vote_average="movie.vote_average"
-        :id="movie.id"
+        v-for="(card, index) in info"
+        :key="index + card.id"
+        :title="card.title"
+        :original_title="card.original_title"
+        :original_language="card.original_language"
+        :vote_average="card.vote_average"
+        :id="card.id"
         />
       </ul>
   </main>
@@ -24,11 +24,10 @@ export default {
     },
     data() {
         return {
-            moviesNew: [],
         }
     },
     props: {
-        movies: {
+        info: {
             type: Array,
         }
     },
