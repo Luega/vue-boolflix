@@ -21,7 +21,9 @@ export default {
     },
     methods: {
         sendToApp(value) {
-            this.$emit('inputTextToApp', value);
+            if (value != "") {
+                this.$emit('inputTextToApp', value);
+            }
         },
   }
 }
