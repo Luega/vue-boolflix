@@ -23,6 +23,7 @@ export default {
   },
   data() {
     return {
+      inputText: "",
       query: "https://api.themoviedb.org/3/search/",
       api_key:"72c83988e48ed668d3d11346217d3feb",
       movieList: null,
@@ -31,15 +32,15 @@ export default {
   },
   methods: {
     searchInfo(text){
-      this.getMovies(text);
-      this.getTv(text);
+      this.inputText = text;
+      this.getMovies(this.inputText);
     },
-    getMovies(text) {
+    getMovies() {
       const endpoint = "movie";
       const parameters = {
         api_key: this.api_key,
         language:"en-US",
-        query: text,                                                     
+        query: this.inputText,                                                     
       };
       axios.get(`${this.query}${endpoint}`, { params: parameters})
       .then((result) => {
@@ -50,12 +51,12 @@ export default {
         console.log(error);
       })
     },
-    getTv(text) {
+    getTv() {
       const endpoint = "tv";
       const parameters = {
         api_key: this.api_key,
         language:"en-US",
-        query: text,                                                     
+        query: this.inputText,                                                     
       };
       axios.get(`${this.query}${endpoint}`, { params: parameters})
       .then((result) => {
@@ -67,6 +68,11 @@ export default {
       })
     },
   },
+  watch: {
+    movieList: function() {
+      this.getTv(this.inputText);
+    }
+  }
 };
 </script>
 
