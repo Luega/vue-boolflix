@@ -5,7 +5,11 @@
         <div>Titolo originale: {{ original_title }}</div>
       </div>
       <div v-else class="red">Titolo: {{ original_name }}</div>
-      <div>Lingua: <i :class="'flag flag-' + getFlag(original_language)"></i></div>
+      <div>
+          Lingua:
+          <span v-if="this.original_language == 'xx' || this.original_language == 'ja'">unavailable</span> 
+          <i v-else :class="'flag flag-' + getFlag(original_language)"></i>
+      </div>
       <div>Voto medio: {{ vote_average }}</div>
   </li>
 </template>
