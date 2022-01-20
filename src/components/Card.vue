@@ -7,7 +7,17 @@
       <div v-else class="red">Titolo: {{ original_name }}</div>
       <div>
           Lingua:
-          <span v-if="this.original_language == 'xx' || this.original_language == 'ja'">unavailable</span> 
+          <span 
+            v-if="
+            this.original_language == 'xx' || 
+            this.original_language == 'ja' ||
+            this.original_language == 'ko' ||
+            this.original_language == 'da' ||
+            this.original_language == 'zh' ||
+            this.original_language == 'hi'
+            "
+            >unavailable
+          </span> 
           <i v-else :class="'flag flag-' + getFlag(original_language)"></i>
       </div>
       <div>Voto medio: {{ vote_average }}</div>
