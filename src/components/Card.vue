@@ -84,8 +84,10 @@ export default {
 <style lang="scss" scoped>
 @import '~mdb-ui-kit/css/mdb.min.css';
 
+li {
+    margin-top: 2em;
+}
 .red {
     color: red;
-    margin-top: 2em;
 }
 </style>
