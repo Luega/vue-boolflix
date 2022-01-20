@@ -28,6 +28,8 @@ export default {
   },
   methods: {
     getMovies(text) {
+      text = text.replace(/ /i, "+");
+      console.log(text);
       axios.get(this.query + text)
       .then((result) => {
         this.movies = result.data.results;
