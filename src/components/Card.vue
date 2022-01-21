@@ -24,7 +24,8 @@
           </span> 
           <i v-else :class="'flag flag-' + getFlag(original_language)"></i>
       </div>
-      <div>Voto medio: {{ newVote }}</div>
+      <font-awesome-icon class="yellow-star" v-for="(star, indice) in this.newVote" :key="indice" :icon="['fas','star']"/>
+      <font-awesome-icon v-for="(emptyStar, index) in this.emptyStars" :key="index" :icon="['fas','star']"/>
   </li>
 </template>
 
@@ -65,7 +66,6 @@ export default {
         poster_path: {
             type: String,
         },
-
         id: {
             type: Number,
         }
@@ -82,7 +82,10 @@ export default {
         newVote: function () {
             return Math.ceil(this.vote_average / 2)
         },
-    }
+        emptyStars: function () {
+            return 5 - this.newVote
+        }
+    },
 }
 </script>
 
@@ -99,5 +102,8 @@ li {
 img {
     width: 185px;
     height: auto;
+}
+.yellow-star {
+    color: rgb(255, 214, 51);
 }
 </style>
