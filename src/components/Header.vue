@@ -34,14 +34,14 @@ export default {
 
 .header {
     width: 100%;
-    padding: 2em 0;
+    padding: 2em 0 0 0;
     background-color: $firstColor;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     .logo-small {
-        margin-bottom: 1em;
+        margin-bottom:4em;
         img {
             widows: 100%;
             height: 100%;

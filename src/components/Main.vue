@@ -1,7 +1,9 @@
 <template>
   <main class="main">
       <div class="container">
-            <h1 class="write-in-input-script" v-if="!this.info">Cosa vuoi vedere questa sera?</h1>
+            <div v-if="!this.info">
+                <img class="img-question" src="../assets/img/question.jpg" alt="blue-eyes">
+            </div>
             <ul v-else-if="this.info.length != 0">  
                 <Card 
                 v-for="(card, index) in info"
@@ -17,9 +19,10 @@
                 :id="card.id"
                 />
             </ul>
-            <div v-else>
-                <h1 class="no-datas-script">Non ci sono titoli correlati.</h1>
-                <h2 class="no-datas-script">Prova a scriverne un altro.</h2>
+            <div class="no-data-script-box" v-else>
+                <h1>Non ci sono titoli correlati.</h1>
+                <h2>Prova a scriverne un altro.</h2>
+                <img class="img-no-data" src="../assets/img/no-data.find.jpg" alt="no-data-find">
             </div>
       </div>
   </main>
@@ -63,7 +66,7 @@ export default {
 
 .main {
     width: 100%;
-    min-height: calc(100vh - 449.6px);
+    min-height: calc(100vh - 465.6px);
     background-color: $secondColor;
     display: flex;
     justify-content: center;
@@ -72,18 +75,26 @@ export default {
         padding: 2em;
         margin: 2em auto;
         background-color: $firstColor;
-        border-radius: 5em;
+        border-radius: 0.5em;
         display: flex;
-        justify-content: center;
-        align-items: center;
         ul {
             list-style: none;
             padding: 0;
             display: flex;
             flex-wrap: wrap;
         }
+        img {
+            border-radius: 1em;
+        }
+        .img-question {
+            width: 100%;
+            object-fit: contain;
+        }
+        .img-no-da {
+            margin-top: 1em;
+        }
         .write-in-input-script,
-        .no-datas-script {
+        .no-data-script-box {
             width: 100%;
             text-align: center;
         }

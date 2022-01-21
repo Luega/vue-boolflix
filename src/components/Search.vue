@@ -1,5 +1,6 @@
 <template>
    <div class="search">
+     <h1>Questa sera voglio vedere:</h1>
     <input
       id="search"
       v-model="inputText"
@@ -33,6 +34,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  h1 {
+    margin-right: 0.5em;
+  }
   #search {
     padding: 1em;
     border: 5px solid rgb(255,241,1);
