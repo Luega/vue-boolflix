@@ -17,7 +17,10 @@
                 :id="card.id"
                 />
             </ul>
-            <h1 class="no-datas-script" v-else>NESSUN RISULTATO DISPONIBILE</h1>
+            <div v-else>
+                <h1 class="no-datas-script">Non ci sono titoli correlati.</h1>
+                <h2 class="no-datas-script">Prova a scriverne un altro.</h2>
+            </div>
       </div>
   </main>
 </template>
@@ -60,7 +63,7 @@ export default {
 
 .main {
     width: 100%;
-    min-height: calc(100vh - 413.6px);
+    min-height: calc(100vh - 449.6px);
     background-color: $secondColor;
     display: flex;
     justify-content: center;

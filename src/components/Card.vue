@@ -18,7 +18,7 @@
                 this.original_language == 'ur' ||
                 this.original_language == 'hi'
                 "
-                >flag unavailable
+                >flag {{ original_language }} unavailable
             </span> 
             <i v-else :class="'flag flag-' + getFlag(original_language)"></i>
         </div>
