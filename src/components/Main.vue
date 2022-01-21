@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="main">
       <h1 v-if="!this.info">Scrivi nel campo di ricerca.</h1>
       <ul v-else-if="this.info.length != 0">  
         <Card 
@@ -53,5 +53,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/partials/_variables.scss";
 
+.main {
+    width: 100%;
+    min-height: 100vh; //da fare calc con altezza header dopo averla stabilita 
+    background-color: $secondColor;
+    
+}
 </style>

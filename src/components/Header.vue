@@ -1,7 +1,7 @@
 <template>
   <header class="header">
       <div class="logo-small">
-          <img :src="this.logoSmall" alt="">
+          <img src= "../assets/logo.png" alt="">
       </div>
       <Search
       @doSearch="sendToApp($event)"
@@ -19,7 +19,6 @@ export default {
     },
     data() {
         return {
-            logoSmall: "required(../logo.png)",
         };
     },
     methods: {
@@ -33,13 +32,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/partials/_variables.scss";
+
 .header {
     width: 100%;
-    height: 100px;
-    background-color: red;
+    padding: 2em 0;
+    background-color: $firstColor;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    .logo-small {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1em;
+        img {
+            widows: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
 }
 </style>
