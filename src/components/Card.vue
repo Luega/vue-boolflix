@@ -18,7 +18,7 @@
                 this.original_language == 'ur' ||
                 this.original_language == 'hi'
                 "
-                >unavailable
+                >flag unavailable
             </span> 
             <i v-else :class="'flag flag-' + getFlag(original_language)"></i>
         </div>
@@ -111,6 +111,7 @@ export default {
     background-color: $cardColor;
     flex-basis: calc((100% / 4) - 2em);
     overflow: auto;
+    transition-duration: 5s;
     &:hover .poster {
         display: none;
     } 
@@ -120,18 +121,16 @@ export default {
     .poster {
         width: 100%;
         height: 100%;
+        transition-duration: 5s;
     }
     .info {
         margin: 1em 1em;
         display: none;
         flex-direction: column;
+        transition-duration: 5s;
+        .yellow-star {
+            color: rgb(255, 214, 51);
+        }
     }
-}
-
-
-
-
-.yellow-star {
-    color: rgb(255, 214, 51);
 }
 </style>

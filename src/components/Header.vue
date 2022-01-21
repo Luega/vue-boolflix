@@ -23,9 +23,7 @@ export default {
     },
     methods: {
         sendToApp(value) {
-            if (value != "") {
-                this.$emit('inputTextToApp', value);
-            }
+            this.$emit('inputTextToApp', value);
         },
   }
 }

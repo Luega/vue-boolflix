@@ -1,7 +1,7 @@
 <template>
   <main class="main">
       <div class="container">
-            <h1 class="write-in-input-script" v-if="!this.info">Scrivi nel campo di ricerca.</h1>
+            <h1 class="write-in-input-script" v-if="!this.info">Cosa vuoi vedere questa sera?</h1>
             <ul v-else-if="this.info.length != 0">  
                 <Card 
                 v-for="(card, index) in info"
@@ -17,7 +17,7 @@
                 :id="card.id"
                 />
             </ul>
-            <h1 class="no-datas-script" v-else>NON CI SONO RISULTATI DISPONIBILI</h1>
+            <h1 class="no-datas-script" v-else>NESSUN RISULTATO DISPONIBILE</h1>
       </div>
   </main>
 </template>
@@ -71,6 +71,8 @@ export default {
         background-color: $firstColor;
         border-radius: 5em;
         display: flex;
+        justify-content: center;
+        align-items: center;
         ul {
             list-style: none;
             padding: 0;

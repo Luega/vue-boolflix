@@ -21,7 +21,7 @@ export default {
     name:"Search",
     data() {
         return {
-            inputText: "",
+            inputText: "null",
         }
     },
 }

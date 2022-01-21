@@ -5,7 +5,7 @@
     />
     <Main
     :movieList="this.movieList" 
-    :tvList="this.tvList" 
+    :tvList="this.tvList"
     />
   </div>
 </template>
@@ -33,7 +33,9 @@ export default {
   methods: {
     searchInfo(text){
       this.inputText = text;
-      this.getMovies(this.inputText);
+      if (text != "") {
+        this.getMovies(this.inputText);
+      }
     },
     getMovies() {
       const endpoint = "movie";
