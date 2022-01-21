@@ -13,6 +13,7 @@
                 :original_language="card.original_language"
                 :vote_average="card.vote_average"
                 :poster_path="card.poster_path"
+                :overview="card.overview"
                 :id="card.id"
                 />
             </ul>
@@ -59,7 +60,7 @@ export default {
 
 .main {
     width: 100%;
-    min-height: 100vh; //da fare calc con altezza header dopo averla stabilita 
+    min-height: calc(100vh - 413.6px);
     background-color: $secondColor;
     display: flex;
     justify-content: center;
@@ -67,7 +68,7 @@ export default {
         width: 80%;
         padding: 2em;
         margin: 2em auto;
-        background-color: yellowgreen;
+        background-color: $firstColor;
         border-radius: 5em;
         display: flex;
         ul {

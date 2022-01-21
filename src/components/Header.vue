@@ -1,7 +1,7 @@
 <template>
   <header class="header">
       <div class="logo-small">
-          <img src= "../assets/logo.png" alt="">
+          <img src= "../assets/img/free-movie-time.png" alt="">
       </div>
       <Search
       @doSearch="sendToApp($event)"
@@ -43,8 +43,6 @@ export default {
     justify-content: center;
     align-items: center;
     .logo-small {
-        width: 100px;
-        height: 100px;
         margin-bottom: 1em;
         img {
             widows: 100%;

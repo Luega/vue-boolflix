@@ -26,6 +26,9 @@
             <font-awesome-icon class="yellow-star" v-for="(star, indice) in this.newVote" :key="'a-' + indice" :icon="['fas','star']"/>
             <font-awesome-icon v-for="(emptyStar, index) in this.emptyStars" :key="'b-' + index" :icon="['fas','star']"/>
         </div>
+        <div class="overview">
+            {{ overview }}
+        </div>
       </div>
   </li>
 </template>
@@ -70,6 +73,9 @@ export default {
         poster_path: {
             type: String,
         },
+        overview: {
+            type: String
+        },
         id: {
             type: Number,
         }
@@ -98,11 +104,13 @@ export default {
 @import "~mdb-ui-kit/css/mdb.min.css";
 
 .info-card { 
+    height: 400px;
     display: flex;
-    background-color: chocolate;
+    margin:1em;
     border-radius: 1em;
-    flex-basis: calc(100% / 4);
-    overflow: hidden;
+    background-color: $cardColor;
+    flex-basis: calc((100% / 4) - 2em);
+    overflow: auto;
     &:hover .poster {
         display: none;
     } 
