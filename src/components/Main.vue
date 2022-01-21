@@ -65,12 +65,14 @@ export default {
     justify-content: center;
     .container {
         width: 80%;
+        padding: 2em;
         margin: 2em auto;
         background-color: yellowgreen;
         border-radius: 5em;
         display: flex;
         ul {
             list-style: none;
+            padding: 0;
             display: flex;
             flex-wrap: wrap;
         }

@@ -22,8 +22,10 @@
             </span> 
             <i v-else :class="'flag flag-' + getFlag(original_language)"></i>
         </div>
-        <font-awesome-icon class="yellow-star" v-for="(star, indice) in this.newVote" :key="'a-' + indice" :icon="['fas','star']"/>
-        <font-awesome-icon v-for="(emptyStar, index) in this.emptyStars" :key="'b-' + index" :icon="['fas','star']"/>
+        <div class="vote">
+            <font-awesome-icon class="yellow-star" v-for="(star, indice) in this.newVote" :key="'a-' + indice" :icon="['fas','star']"/>
+            <font-awesome-icon v-for="(emptyStar, index) in this.emptyStars" :key="'b-' + index" :icon="['fas','star']"/>
+        </div>
       </div>
   </li>
 </template>
@@ -96,28 +98,31 @@ export default {
 @import "~mdb-ui-kit/css/mdb.min.css";
 
 .info-card { 
+    display: flex;
     background-color: chocolate;
     border-radius: 1em;
-    flex-basis: calc(100% / 6);
+    flex-basis: calc(100% / 4);
     overflow: hidden;
+    &:hover .poster {
+        display: none;
+    } 
+    &:hover .info {
+        display: flex;
+    }
     .poster {
         width: 100%;
         height: 100%;
     }
     .info {
+        margin: 1em 1em;
         display: none;
+        flex-direction: column;
     }
 }
-li {
-    margin-top: 2em;
-}
-.red {
-    color: red;
-}
-img {
-    width: 185px;
-    height: auto;
-}
+
+
+
+
 .yellow-star {
     color: rgb(255, 214, 51);
 }
