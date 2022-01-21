@@ -69,7 +69,11 @@ export default {
         background-color: yellowgreen;
         border-radius: 5em;
         display: flex;
-        flex-wrap: wrap;
+        ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
         .write-in-input-script,
         .no-datas-script {
             width: 100%;

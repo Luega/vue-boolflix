@@ -1,30 +1,32 @@
 <template>
-  <li>
-      <div>
-          <img :src="this.poster_path ? `${this.urlImg}${this.poster_sizes[2]}${this.poster_path}` : this.unavailableImg" alt="ciao">
+  <li class="info-card">
+      <div class="poster">
+          <img :src="this.poster_path ? `${this.urlImg}${this.poster_sizes[3]}${this.poster_path}` : this.unavailableImg" alt="ciao">
       </div>
-      <div class="red" v-if="(this.title)">Titolo: {{ title }}</div>
-      <div class="red" v-else>Titolo: {{ name }}</div>
-      <div v-if="(this.original_title)">Titolo originale: {{ original_title }}</div>
-      <div v-else>Titolo originale: {{ original_name }}</div>
-      <div>
-          Lingua:
-          <span 
-            v-if="
-            this.original_language == 'xx' || 
-            this.original_language == 'ja' ||
-            this.original_language == 'ko' ||
-            this.original_language == 'da' ||
-            this.original_language == 'zh' ||
-            this.original_language == 'ur' ||
-            this.original_language == 'hi'
-            "
-            >unavailable
-          </span> 
-          <i v-else :class="'flag flag-' + getFlag(original_language)"></i>
+      <div class="info">
+        <div class="red" v-if="(this.title)">Titolo: {{ title }}</div>
+        <div class="red" v-else>Titolo: {{ name }}</div>
+        <div v-if="(this.original_title)">Titolo originale: {{ original_title }}</div>
+        <div v-else>Titolo originale: {{ original_name }}</div>
+        <div>
+            Lingua:
+            <span 
+                v-if="
+                this.original_language == 'xx' || 
+                this.original_language == 'ja' ||
+                this.original_language == 'ko' ||
+                this.original_language == 'da' ||
+                this.original_language == 'zh' ||
+                this.original_language == 'ur' ||
+                this.original_language == 'hi'
+                "
+                >unavailable
+            </span> 
+            <i v-else :class="'flag flag-' + getFlag(original_language)"></i>
+        </div>
+        <font-awesome-icon class="yellow-star" v-for="(star, indice) in this.newVote" :key="'a-' + indice" :icon="['fas','star']"/>
+        <font-awesome-icon v-for="(emptyStar, index) in this.emptyStars" :key="'b-' + index" :icon="['fas','star']"/>
       </div>
-      <font-awesome-icon class="yellow-star" v-for="(star, indice) in this.newVote" :key="'a-' + indice" :icon="['fas','star']"/>
-      <font-awesome-icon v-for="(emptyStar, index) in this.emptyStars" :key="'b-' + index" :icon="['fas','star']"/>
   </li>
 </template>
 
@@ -92,9 +94,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+@import "../assets/partials/_variables.scss";
 @import "~mdb-ui-kit/css/mdb.min.css";
 
+.info-card { 
+    background-color: chocolate;
+    border-radius: 1em;
+    flex-basis: calc(100% / 6);
+}
 li {
     margin-top: 2em;
 }
