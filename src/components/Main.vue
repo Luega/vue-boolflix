@@ -6,6 +6,7 @@
         v-for="(card, index) in info"
         :key="index + card.id"
         :title="card.title"
+        :name="card.name"
         :original_title="card.original_title"
         :original_name="card.original_name"
         :original_language="card.original_language"

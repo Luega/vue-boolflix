@@ -3,11 +3,10 @@
       <div>
           <img :src="this.poster_path ? `${this.urlImg}${this.poster_sizes[2]}${this.poster_path}` : this.unavailableImg" alt="ciao">
       </div>
-      <div v-if="(this.title)">
-        <div class="red">Titolo: {{ title }}</div>
-        <div>Titolo originale: {{ original_title }}</div>
-      </div>
-      <div v-else class="red">Titolo: {{ original_name }}</div>
+      <div class="red" v-if="(this.title)">Titolo: {{ title }}</div>
+      <div class="red" v-else>Titolo: {{ name }}</div>
+      <div v-if="(this.original_title)">Titolo originale: {{ original_title }}</div>
+      <div v-else>Titolo originale: {{ original_name }}</div>
       <div>
           Lingua:
           <span 
@@ -24,8 +23,8 @@
           </span> 
           <i v-else :class="'flag flag-' + getFlag(original_language)"></i>
       </div>
-      <font-awesome-icon class="yellow-star" v-for="(star, indice) in this.newVote" :key="indice" :icon="['fas','star']"/>
-      <font-awesome-icon v-for="(emptyStar, index) in this.emptyStars" :key="index" :icon="['fas','star']"/>
+      <font-awesome-icon class="yellow-star" v-for="(star, indice) in this.newVote" :key="'a-' + indice" :icon="['fas','star']"/>
+      <font-awesome-icon v-for="(emptyStar, index) in this.emptyStars" :key="'b-' + index" :icon="['fas','star']"/>
   </li>
 </template>
 
@@ -49,6 +48,9 @@ export default {
     },
     props: {
         title: {
+            type: String,
+        },
+        name: {
             type: String,
         },
         original_title: {
