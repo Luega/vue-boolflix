@@ -1,21 +1,23 @@
 <template>
   <main class="main">
-      <h1 v-if="!this.info">Scrivi nel campo di ricerca.</h1>
-      <ul v-else-if="this.info.length != 0">  
-        <Card 
-        v-for="(card, index) in info"
-        :key="index + card.id"
-        :title="card.title"
-        :name="card.name"
-        :original_title="card.original_title"
-        :original_name="card.original_name"
-        :original_language="card.original_language"
-        :vote_average="card.vote_average"
-        :poster_path="card.poster_path"
-        :id="card.id"
-        />
-      </ul>
-      <h1 v-else>NON CI SONO RISULTATI DISPONIBILI</h1>
+      <div class="container">
+            <h1 class="write-in-input-script" v-if="!this.info">Scrivi nel campo di ricerca.</h1>
+            <ul v-else-if="this.info.length != 0">  
+                <Card 
+                v-for="(card, index) in info"
+                :key="index + card.id"
+                :title="card.title"
+                :name="card.name"
+                :original_title="card.original_title"
+                :original_name="card.original_name"
+                :original_language="card.original_language"
+                :vote_average="card.vote_average"
+                :poster_path="card.poster_path"
+                :id="card.id"
+                />
+            </ul>
+            <h1 class="no-datas-script" v-else>NON CI SONO RISULTATI DISPONIBILI</h1>
+      </div>
   </main>
 </template>
 
@@ -59,6 +61,21 @@ export default {
     width: 100%;
     min-height: 100vh; //da fare calc con altezza header dopo averla stabilita 
     background-color: $secondColor;
-    
+    display: flex;
+    justify-content: center;
+    .container {
+        width: 80%;
+        margin: 2em auto;
+        background-color: yellowgreen;
+        border-radius: 5em;
+        display: flex;
+        flex-wrap: wrap;
+        .write-in-input-script,
+        .no-datas-script {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
 }
 </style>
