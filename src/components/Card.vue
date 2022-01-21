@@ -1,8 +1,6 @@
 <template>
   <li class="info-card">
-      <div class="poster">
-          <img :src="this.poster_path ? `${this.urlImg}${this.poster_sizes[3]}${this.poster_path}` : this.unavailableImg" alt="ciao">
-      </div>
+      <img class="poster" :src="this.poster_path ? `${this.urlImg}${this.poster_sizes[3]}${this.poster_path}` : this.unavailableImg" alt="ciao">
       <div class="info">
         <div class="red" v-if="(this.title)">Titolo: {{ title }}</div>
         <div class="red" v-else>Titolo: {{ name }}</div>
@@ -101,6 +99,14 @@ export default {
     background-color: chocolate;
     border-radius: 1em;
     flex-basis: calc(100% / 6);
+    overflow: hidden;
+    .poster {
+        width: 100%;
+        height: 100%;
+    }
+    .info {
+        display: none;
+    }
 }
 li {
     margin-top: 2em;
